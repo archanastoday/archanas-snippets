@@ -3,53 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Playground – Live Code Editor</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Playground</title>
+  <style>
+    body { font-family: sans-serif; background: #f3f4f6; padding: 1rem; }
+    textarea { width: 100%; height: 150px; margin-bottom: 10px; padding: 10px; }
+    iframe { width: 100%; height: 300px; border: 1px solid #ccc; background: white; }
+    button { padding: 10px 20px; background: #2563eb; color: white; border: none; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800 p-4">
-  <header class="text-center mb-6">
-    <h1 class="text-3xl font-bold">🧪 Live Code Playground</h1>
-    <p class="text-gray-600">Write HTML, CSS & JS → See result below</p>
-  </header>
+<body>
+  <h1>🧪 Live Code Playground</h1>
 
-  <!-- Code Editor -->
-  <div class="grid gap-4 sm:grid-cols-3 mb-4">
-    <div>
-      <h2 class="font-semibold mb-1">HTML</h2>
-      <textarea id="html" class="w-full h-48 p-2 border rounded resize-none"></textarea>
-    </div>
-    <div>
-      <h2 class="font-semibold mb-1">CSS</h2>
-      <textarea id="css" class="w-full h-48 p-2 border rounded resize-none"></textarea>
-    </div>
-    <div>
-      <h2 class="font-semibold mb-1">JavaScript</h2>
-      <textarea id="js" class="w-full h-48 p-2 border rounded resize-none"></textarea>
-    </div>
-  </div>
+  <h3>HTML</h3>
+  <textarea id="html"></textarea>
 
-  <!-- Run Button -->
-  <div class="text-center mb-4">
-    <button onclick="runCode()" class="bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition">
-      ▶️ Run Code
-    </button>
-  </div>
+  <h3>CSS</h3>
+  <textarea id="css"></textarea>
 
-  <!-- Output -->
-  <div class="border rounded overflow-hidden">
-    <iframe id="output" class="w-full h-96 bg-white"></iframe>
-  </div>
+  <h3>JavaScript</h3>
+  <textarea id="js"></textarea>
 
-  <footer class="text-center mt-6 text-sm text-gray-500">
-    Made with ❤️ by Archana • <a href="index.html" class="underline">Home</a>
-  </footer>
+  <button onclick="runCode()">▶️ Run Code</button>
+
+  <h3>Output:</h3>
+  <iframe id="output"></iframe>
 
   <script>
     function runCode() {
-      const html = document.getElementById("html").value;
-      const css = "<style>" + document.getElementById("css").value + "</style>";
-      const js = "<script>" + document.getElementById("js").value + "<\/script>";
-      const output = document.getElementById("output");
+      const html = document.getElementById('html').value;
+      const css = `<style>${document.getElementById('css').value}</style>`;
+      const js = `<script>${document.getElementById('js').value}<\/script>`;
+      const output = document.getElementById('output');
       output.srcdoc = html + css + js;
     }
   </script>
