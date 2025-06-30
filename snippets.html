@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Archana’s Snippets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 p-6 font-sans">
+
+  <h1 class="text-3xl font-bold mb-6 text-center">📋 Code Snippets by Archana</h1>
+
+  <div class="max-w-2xl mx-auto space-y-6">
+    <!-- Snippet 1 -->
+    <div class="bg-white p-4 rounded shadow">
+      <h2 class="font-semibold mb-2">💡 Responsive Button</h2>
+      <pre class="bg-gray-100 p-2 rounded text-sm overflow-auto" id="snippet1">
+&lt;button class="bg-blue-600 text-white px-4 py-2 rounded"&gt;Click Me&lt;/button&gt;
+      </pre>
+      <button onclick="copy('snippet1')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded">📋 Copy</button>
+    </div>
+
+    <!-- Snippet 2 -->
+    <div class="bg-white p-4 rounded shadow">
+      <h2 class="font-semibold mb-2">💡 Centered Container</h2>
+      <pre class="bg-gray-100 p-2 rounded text-sm overflow-auto" id="snippet2">
+&lt;div class="flex items-center justify-center h-screen"&gt;Centered&lt;/div&gt;
+      </pre>
+      <button onclick="copy('snippet2')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded">📋 Copy</button>
+    </div>
+  </div>
+
+  <script>
+    function copy(id) {
+      const code = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert("Code copied!");
+      });
+    }
+  </script>
+
+</body>
+</html>
