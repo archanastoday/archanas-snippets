@@ -2,42 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Archana’s Snippets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-900 p-6 font-sans">
-
-  <h1 class="text-3xl font-bold mb-6 text-center">📋 Code Snippets by Archana</h1>
-
-  <div class="max-w-2xl mx-auto space-y-6">
-    <!-- Snippet 1 -->
-    <div class="bg-white p-4 rounded shadow">
-      <h2 class="font-semibold mb-2">💡 Responsive Button</h2>
-      <pre class="bg-gray-100 p-2 rounded text-sm overflow-auto" id="snippet1">
-&lt;button class="bg-blue-600 text-white px-4 py-2 rounded"&gt;Click Me&lt;/button&gt;
-      </pre>
-      <button onclick="copy('snippet1')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded">📋 Copy</button>
-    </div>
-
-    <!-- Snippet 2 -->
-    <div class="bg-white p-4 rounded shadow">
-      <h2 class="font-semibold mb-2">💡 Centered Container</h2>
-      <pre class="bg-gray-100 p-2 rounded text-sm overflow-auto" id="snippet2">
-&lt;div class="flex items-center justify-center h-screen"&gt;Centered&lt;/div&gt;
-      </pre>
-      <button onclick="copy('snippet2')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded">📋 Copy</button>
-    </div>
-  </div>
-
+  <title>Code Snippets – Archanas Today</title>
   <script>
-    function copy(id) {
+    function copyCode(id) {
       const code = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        alert("Code copied!");
-      });
+      navigator.clipboard.writeText(code);
+      alert("Code copied to clipboard!");
     }
   </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 p-4">
+  <header class="text-center mb-6">
+    <h1 class="text-3xl font-bold">🚀 Beginner Developer Snippet Pack</h1>
+    <p class="text-gray-600">Simple copy-paste HTML/CSS/JS code to level up your projects</p>
+  </header>
 
-</body>
-</html>
+  <!-- Snippet 1: WhatsApp Button -->
+  <section class="mb-6 p-4 bg-white shadow rounded">
+    <h2 class="text-xl font-semibold mb-2">1. WhatsApp Contact Button</h2>
+    <pre id="snippet1" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
+&lt;a href="https://wa.me/91YOURNUMBER" class="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg z-50" target="_blank"&gt;
+  💬
+&lt;/a&gt;
+    </pre>
+    <button onclick="copyCode('snippet1')" class="mt-2 bg-green-600 text-white px-4 py-1 rounded">Copy</button>
+  </section>
+
+  <!-- Snippet 2: Dark Mode Toggle -->
+  <section class="mb-6 p-4 bg-white shadow rounded">
+    <h2 class="text-xl font-semibold mb-2">2. Dark Mode Toggle</h2>
+    <pre id="snippet2" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
+&lt;button onclick="document.body.classList.toggle('dark')" class="px-4 py-2 bg-gray-800 text-white rounded"&gt;🌗 Toggle Dark&lt;/button&gt;
+
+&lt;style&gt;
+  .dark { background-color: #111; color: #eee; }
+&lt;/style&gt;
+    </pre>
+    <button onclick="copyCode('snippet2')" class="mt-2 bg-gray-800 text-white px-4 py-1 rounded">Copy</button>
+  </section>
+
+  <!-- Snippet 3: Resume Download -->
+  <section class="mb-6 p-4 bg-white shadow rounded">
+    <h2 class="text-xl font-semibold mb-2">3. Resume Download Button</h2>
+    <pre id="snippet3" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
+&lt;a href="resume.pdf" download class="bg-blue-600 text-white px-4 py-2 rounded shadow"&gt;
+  📄 Download Resume
+&lt;/a&gt;
+    </pre>
+    <button onclick="copyCode('snippet3')" class="mt-2 bg-blue-600 text-white px-4 py-1 rounded">Copy</button>
+  </section>
+
+  <!-- Snippet 4: Responsive Navbar -->
+  <section class="mb-6 p-4 bg-white shadow rounded">
+    <h2 class="text-xl font-semibold mb-2">4. Simple Responsive Navbar</h2>
+    <pre id="snippet4" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
+&lt;nav class="p-4 bg-white shadow flex justify-between"&gt;
+  &lt;div class="font-bold"&gt;MySite&lt;/div&gt;
+  &lt;div class="space-x-4 hidden sm:flex"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;Work&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+    </pre>
+    <button onclick="copyCode('snippet4')" class="mt-2 bg-gray-700 text-white px-4 py-1 rounded">Copy</button>
+  </section>
+
+  <!-- Snippet 5: Live HTML Preview -->
+  <section class="mb-6 p-4 bg-white shadow rounded">
+    <h2 class="text-xl font-semibold mb-2">5. Live HTML Code Preview</h2>
+    <pre id="snippet5" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
+&lt;textarea id="htm
