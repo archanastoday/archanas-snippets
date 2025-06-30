@@ -3,40 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Playground</title>
-  <style>
-    body { font-family: sans-serif; background: #f3f4f6; padding: 1rem; }
-    textarea { width: 100%; height: 150px; margin-bottom: 10px; padding: 10px; }
-    iframe { width: 100%; height: 300px; border: 1px solid #ccc; background: white; }
-    button { padding: 10px 20px; background: #2563eb; color: white; border: none; cursor: pointer; }
-    button:hover { background: #1d4ed8; }
-  </style>
+  <title>Playground – Archanas Today</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>🧪 Live Code Playground</h1>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-white shadow p-6 text-center">
+    <h1 class="text-3xl font-bold">🧪 Live Playground</h1>
+    <p class="text-gray-500 text-sm">Write HTML, CSS, JS → See the result live!</p>
+  </header>
 
-  <h3>HTML</h3>
-  <textarea id="html"></textarea>
+  <!-- Editor Area -->
+  <main class="flex-1 container mx-auto p-4">
+    <div class="grid md:grid-cols-3 gap-4">
+      <div>
+        <h2 class="font-semibold mb-1">HTML</h2>
+        <textarea id="html" class="w-full h-48 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+      </div>
+      <div>
+        <h2 class="font-semibold mb-1">CSS</h2>
+        <textarea id="css" class="w-full h-48 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+      </div>
+      <div>
+        <h2 class="font-semibold mb-1">JavaScript</h2>
+        <textarea id="js" class="w-full h-48 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+      </div>
+    </div>
 
-  <h3>CSS</h3>
-  <textarea id="css"></textarea>
-
-  <h3>JavaScript</h3>
-  <textarea id="js"></textarea>
-
-  <button onclick="runCode()">▶️ Run Code</button>
-
-  <h3>Output:</h3>
-  <iframe id="output"></iframe>
-
-  <script>
-    function runCode() {
-      const html = document.getElementById('html').value;
-      const css = `<style>${document.getElementById('css').value}</style>`;
-      const js = `<script>${document.getElementById('js').value}<\/script>`;
-      const output = document.getElementById('output');
-      output.srcdoc = html + css + js;
-    }
-  </script>
-</body>
-</html>
+    <!-- Run Button -->
+    <div class="text-center mt-6">
+      <button onclick="runCode()" class="bg-blue-
