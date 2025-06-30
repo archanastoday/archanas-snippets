@@ -41,4 +41,17 @@
   </div>
 
   <footer class="text-center mt-6 text-sm text-gray-500">
-    Made with ❤️ by Archana • <a href="index.html" class="u
+    Made with ❤️ by Archana • <a href="index.html" class="underline">Home</a>
+  </footer>
+
+  <script>
+    function runCode() {
+      const html = document.getElementById("html").value;
+      const css = "<style>" + document.getElementById("css").value + "</style>";
+      const js = "<script>" + document.getElementById("js").value + "<\/script>";
+      const output = document.getElementById("output");
+      output.srcdoc = html + css + js;
+    }
+  </script>
+</body>
+</html>
