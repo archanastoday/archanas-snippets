@@ -2,70 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Archana’s Playground</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Playground – Live Code Editor</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    textarea { font-family: monospace; }
-    iframe { width: 100%; height: 300px; border: 1px solid #ccc; }
-  </style>
 </head>
-<body class="bg-gray-100 p-6 font-sans">
+<body class="bg-gray-100 text-gray-800 p-4">
+  <header class="text-center mb-6">
+    <h1 class="text-3xl font-bold">🧪 Live Code Playground</h1>
+    <p class="text-gray-600">Write HTML, CSS & JS → See result below</p>
+  </header>
 
-  <h1 class="text-3xl font-bold text-center mb-6">🧪 Archana's Live Code Playground</h1>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+  <!-- Code Editor -->
+  <div class="grid gap-4 sm:grid-cols-3 mb-4">
     <div>
-      <label class="font-semibold">HTML</label>
-      <textarea id="html" class="w-full h-40 p-2 border rounded" placeholder="Write HTML here..."></textarea>
+      <h2 class="font-semibold mb-1">HTML</h2>
+      <textarea id="html" class="w-full h-48 p-2 border rounded resize-none"></textarea>
     </div>
     <div>
-      <label class="font-semibold">CSS</label>
-      <textarea id="css" class="w-full h-40 p-2 border rounded" placeholder="Write CSS here..."></textarea>
+      <h2 class="font-semibold mb-1">CSS</h2>
+      <textarea id="css" class="w-full h-48 p-2 border rounded resize-none"></textarea>
     </div>
     <div>
-      <label class="font-semibold">JavaScript</label>
-      <textarea id="js" class="w-full h-40 p-2 border rounded" placeholder="Write JavaScript here..."></textarea>
+      <h2 class="font-semibold mb-1">JavaScript</h2>
+      <textarea id="js" class="w-full h-48 p-2 border rounded resize-none"></textarea>
     </div>
   </div>
 
-  <div class="flex gap-4 mb-4">
-    <button onclick="runCode()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">▶️ Run Code</button>
-    <button onclick="resetCode()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">🔄 Reset</button>
-    <button onclick="copyCode()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">📋 Copy Code</button>
+  <!-- Run Button -->
+  <div class="text-center mb-4">
+    <button onclick="runCode()" class="bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition">
+      ▶️ Run Code
+    </button>
   </div>
 
-  <h2 class="text-xl font-semibold mb-2">🔍 Output</h2>
-  <iframe id="output"></iframe>
+  <!-- Output -->
+  <div class="border rounded overflow-hidden">
+    <iframe id="output" class="w-full h-96 bg-white"></iframe>
+  </div>
 
-  <footer class="mt-10 text-center text-sm text-gray-500">
-    Made with ❤️ by Archana | <a href="https://archanas.today" class="underline">archanas.today</a>
-  </footer>
-
-  <script>
-    function runCode() {
-      const html = document.getElementById("html").value;
-      const css = "<style>" + document.getElementById("css").value + "</style>";
-      const js = "<script>" + document.getElementById("js").value + "<\/script>";
-      const result = html + css + js;
-      const outputFrame = document.getElementById("output");
-      outputFrame.srcdoc = result;
-    }
-
-    function resetCode() {
-      document.getElementById("html").value = "";
-      document.getElementById("css").value = "";
-      document.getElementById("js").value = "";
-      document.getElementById("output").srcdoc = "";
-    }
-
-    function copyCode() {
-      const code = `<!-- HTML -->\n${document.getElementById("html").value}\n\n<!-- CSS -->\n${document.getElementById("css").value}\n\n<!-- JS -->\n${document.getElementById("js").value}`;
-      navigator.clipboard.writeText(code).then(() => {
-        alert("Code copied to clipboard!");
-      });
-    }
-  </script>
-
-</body>
-</html>
+  <footer class="text-center mt-6 text-sm text-gray-500">
+    Made with ❤️ by Archana • <a href="index.html" class="u
