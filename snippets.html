@@ -3,98 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code Snippets – Archanas Today</title>
-  <script>
-    function copyCode(id) {
-      const code = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(code);
-      alert("Code copied to clipboard!");
-    }
-  </script>
+  <title>Snippets – Archanas Today</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 p-4">
-  <header class="text-center mb-6">
-    <h1 class="text-3xl font-bold">🚀 Beginner Developer Snippet Pack</h1>
-    <p class="text-gray-600">Simple copy-paste HTML/CSS/JS code to level up your projects</p>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-6 text-center">
+    <h1 class="text-3xl font-bold">🧩 Code Snippets</h1>
+    <p class="text-sm text-gray-500">Search and copy reusable HTML, CSS & JS snippets</p>
   </header>
 
-  <!-- Snippet 1: WhatsApp Button -->
-  <section class="mb-6 p-4 bg-white shadow rounded">
-    <h2 class="text-xl font-semibold mb-2">1. WhatsApp Contact Button</h2>
-    <pre id="snippet1" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
-&lt;a href="https://wa.me/91YOURNUMBER" class="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg z-50" target="_blank"&gt;
-  💬
-&lt;/a&gt;
-    </pre>
-    <button onclick="copyCode('snippet1')" class="mt-2 bg-green-600 text-white px-4 py-1 rounded">Copy</button>
-  </section>
+  <!-- Search Bar -->
+  <div class="p-4 max-w-4xl mx-auto">
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search snippets (e.g. button, animation)..."
+      class="w-full p-3 rounded border shadow focus:outline-none focus:ring focus:ring-blue-400"
+    />
+  </div>
 
-  <!-- Snippet 2: Dark Mode Toggle -->
-  <section class="mb-6 p-4 bg-white shadow rounded">
-    <h2 class="text-xl font-semibold mb-2">2. Dark Mode Toggle</h2>
-    <pre id="snippet2" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
-&lt;button onclick="document.body.classList.toggle('dark')" class="px-4 py-2 bg-gray-800 text-white rounded"&gt;🌗 Toggle Dark&lt;/button&gt;
+  <!-- Snippets Grid -->
+  <main class="p-4 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="snippetContainer">
 
-&lt;style&gt;
-  .dark { background-color: #111; color: #eee; }
-&lt;/style&gt;
-    </pre>
-    <button onclick="copyCode('snippet2')" class="mt-2 bg-gray-800 text-white px-4 py-1 rounded">Copy</button>
-  </section>
+    <!-- Snippet Card Example -->
+    <div class="snippet-card bg-white rounded-xl shadow p-4">
+      <div class="text-sm text-gray-600 mb-2">💡 Button (HTML + CSS)</div>
+      <pre class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
+&lt;button class="bg-blue-500 text-white px-4 py-2 rounded"&gt;
+  Click Me
+&lt;/button&gt;
+</pre>
+      <button onclick="copySnippet(this)" class="mt-2 text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">📋 Copy</button>
+    </div>
 
-  <!-- Snippet 3: Resume Download -->
-  <section class="mb-6 p-4 bg-white shadow rounded">
-    <h2 class="text-xl font-semibold mb-2">3. Resume Download Button</h2>
-    <pre id="snippet3" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
-&lt;a href="resume.pdf" download class="bg-blue-600 text-white px-4 py-2 rounded shadow"&gt;
-  📄 Download Resume
-&lt;/a&gt;
-    </pre>
-    <button onclick="copyCode('snippet3')" class="mt-2 bg-blue-600 text-white px-4 py-1 rounded">Copy</button>
-  </section>
+    <div class="snippet-card bg-white rounded-xl shadow p-4">
+      <div class="text-sm text-gray-600 mb-2">🎯 CSS Animation</div>
+      <pre class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
 
-  <!-- Snippet 4: Responsive Navbar -->
-  <section class="mb-6 p-4 bg-white shadow rounded">
-    <h2 class="text-xl font-semibold mb-2">4. Simple Responsive Navbar</h2>
-    <pre id="snippet4" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
-&lt;nav class="p-4 bg-white shadow flex justify-between"&gt;
-  &lt;div class="font-bold"&gt;MySite&lt;/div&gt;
-  &lt;div class="space-x-4 hidden sm:flex"&gt;
-    &lt;a href="#"&gt;Home&lt;/a&gt;
-    &lt;a href="#"&gt;Work&lt;/a&gt;
-    &lt;a href="#"&gt;Contact&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;
-    </pre>
-    <button onclick="copyCode('snippet4')" class="mt-2 bg-gray-700 text-white px-4 py-1 rounded">Copy</button>
-  </section>
+.bounce {
+  animation: bounce 1s infinite;
+}
+</pre>
+      <button onclick="copySnippet(this)" class="mt-2 text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">📋 Copy</button>
+    </div>
 
-  <!-- Snippet 5: Live HTML Preview -->
-  <section class="mb-6 p-4 bg-white shadow rounded">
-    <h2 class="text-xl font-semibold mb-2">5. Live HTML Code Preview</h2>
-    <pre id="snippet5" class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
-&lt;textarea id="htmlCode" placeholder="Enter HTML here" class="w-full h-32 border p-2"&gt;&lt;/textarea&gt;
-&lt;iframe id="output" class="w-full h-40 mt-2 border"&gt;&lt;/iframe&gt;
+    <div class="snippet-card bg-white rounded-xl shadow p-4">
+      <div class="text-sm text-gray-600 mb-2">⚙️ JS Alert</div>
+      <pre class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">
+document.querySelector("button").onclick = () =&gt; {
+  alert("Hello from Archana!");
+};
+</pre>
+      <button onclick="copySnippet(this)" class="mt-2 text-sm bg-yellow-600 text-white px-3 py-1 rounded hover:bg-yellow-700">📋 Copy</button>
+    </div>
 
-&lt;script&gt;
-  document.getElementById('htmlCode').addEventListener('input', e =&gt; {
-    document.getElementById('output').srcdoc = e.target.value;
-  });
-&lt;/script&gt;
-    </pre>
-    <button onclick="copyCode('snippet5')" class="mt-2 bg-purple-700 text-white px-4 py-1 rounded">Copy</button>
-  </section>
-  
-  <!-- Support Me Section -->
-<section class="bg-white p-6 my-10 rounded shadow max-w-lg mx-auto text-center">
-  <h2 class="text-2xl font-semibold mb-2">❤️ Support My Work</h2>
-  <p class="text-gray-600 mb-4">If these snippets saved you time, feel free to support me via UPI 🙏</p>
-  <img src="qr-code.png" alt="UPI QR Code" class="mx-auto w-40 h-40 rounded border" />
-  <p class="text-sm text-gray-500 mt-2">Or UPI ID: <strong>yourname@upi</strong></p>
-</section>
-  <footer class="text-center mt-10 text-sm text-gray-500">
-    Built with ❤️ by Archana • <a href="https://archanas.today" class="underline">archanas.today</a>
+    <!-- Add more snippets here... -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 text-sm text-gray-500 bg-white mt-auto">
+    Made with ❤️ by Archana • <a href="index.html" class="underline text-blue-600">Home</a>
   </footer>
+
+  <!-- Script: Search + Copy -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const snippets = document.querySelectorAll(".snippet-card");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      snippets.forEach(snippet => {
+        snippet.style.display = snippet.textContent.toLowerCase().includes(query) ? "block" : "none";
+      });
+    });
+
+    function copySnippet(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = "✅ Copied!";
+        setTimeout(() => button.textContent = "📋 Copy", 1500);
+      });
+    }
+  </script>
+
 </body>
 </html>
