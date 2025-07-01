@@ -74,24 +74,55 @@ document.querySelector("button").onclick = () =&gt; {
 
   <!-- Script: Search + Copy -->
   <script>
-    const searchInput = document.getElementById("searchInput");
-    const snippets = document.querySelectorAll(".snippet-card");
+  const container = document.getElementById("snippetContainer");
+  const searchInput = document.getElementById("searchInput");
 
-    searchInput.addEventListener("input", () => {
-      const query = searchInput.value.toLowerCase();
-      snippets.forEach(snippet => {
-        snippet.style.display = snippet.textContent.toLowerCase().includes(query) ? "block" : "none";
-      });
+  let snippetsData = [];
+
+  // Fetch snippets from JSON file
+  fetch("snippets.json")
+    .then(res => res.json())
+    .then(data => {
+      snippetsData = data;
+      renderSnippets(data);
     });
 
-    function copySnippet(button) {
-      const code = button.previousElementSibling.textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        button.textContent = "✅ Copied!";
-        setTimeout(() => button.textContent = "📋 Copy", 1500);
-      });
-    }
-  </script>
+  // Render all snippets
+  function renderSnippets(snippets) {
+    container.innerHTML = ""; // Clear previous
+    snippets.forEach(snippet => {
+      const div = document.createElement("div");
+      div.className = "snippet-card bg-white rounded-xl shadow p-4";
+      div.innerHTML = `
+        <div class="text-sm text-gray-600 mb-2">${snippet.title}</div>
+        <pre class="bg-gray-100 p-2 rounded text-sm overflow-x-auto">${snippet.code}</pre>
+        <button onclick="copySnippet(this)" class="mt-2 text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">📋 Copy</button>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  // Search functionality
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    const filtered = snippetsData.filter(s =>
+      s.title.toLowerCase().includes(query) ||
+      s.tags.join(" ").toLowerCase().includes(query) ||
+      s.code.toLowerCase().includes(query)
+    );
+    renderSnippets(filtered);
+  });
+
+  // Copy code
+  function copySnippet(btn) {
+    const code = btn.previousElementSibling.textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = "✅ Copied!";
+      setTimeout(() => btn.textContent = "📋 Copy", 1500);
+    });
+  }
+</script>
+
 
 </body>
 </html>
