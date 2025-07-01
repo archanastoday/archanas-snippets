@@ -1,0 +1,44 @@
+[
+  {
+    "id": "s1",
+    "title": "Basic HTML Button",
+    "tags": ["html", "button", "ui"],
+    "language": "html",
+    "code": "<button class='bg-blue-500 text-white px-4 py-2 rounded'>Click Me</button>"
+  },
+  {
+    "id": "s2",
+    "title": "Center Div with Flexbox",
+    "tags": ["css", "layout", "flexbox"],
+    "language": "css",
+    "code": ".centered {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n}"
+  },
+  {
+    "id": "s3",
+    "title": "JS Alert Button",
+    "tags": ["js", "alert", "button"],
+    "language": "javascript",
+    "code": "document.querySelector('button').onclick = function() {\n  alert('Hello, Archana!');\n};"
+  },
+  {
+    "id": "s4",
+    "title": "Card UI",
+    "tags": ["html", "ui", "card"],
+    "language": "html",
+    "code": "<div class='bg-white shadow p-4 rounded'>\n  <h3 class='font-bold text-lg'>Card Title</h3>\n  <p class='text-sm'>This is a simple card.</p>\n</div>"
+  },
+  {
+    "id": "s5",
+    "title": "CSS Hover Effect",
+    "tags": ["css", "hover", "animation"],
+    "language": "css",
+    "code": ".hover-effect:hover {\n  transform: scale(1.05);\n  transition: transform 0.3s;\n}"
+  },
+  {
+    "id": "s6",
+    "title": "Open Link in New Tab",
+    "tags": ["html", "link", "target"],
+    "language": "html",
+    "code": "<a href='https://archanas.today' target='_blank'>Visit Archana</a>"
+  }
+]
